@@ -87,3 +87,140 @@ d) false, false
 8. b) true
 9. d) try
 10. c) true, false
+
+Basic Level:
+What is the output of console.log(typeof null)?
+
+Output: "object" (This is a well-known JavaScript quirk.)
+
+How do you declare a variable in JavaScript?
+
+Using var, let, or const. Example:
+
+js
+Copy
+Edit
+var a = 10;
+let b = 20;
+const c = 30;
+What is the difference between let, const, and var?
+
+var: Function-scoped, can be redeclared.
+
+let: Block-scoped, cannot be redeclared but can be reassigned.
+
+const: Block-scoped, cannot be redeclared or reassigned.
+
+How do you check if a variable is an array in JavaScript?
+
+Use Array.isArray():
+
+js
+Copy
+Edit
+Array.isArray([1, 2, 3]); // true
+What does NaN === NaN return?
+
+false, because NaN is not equal to anything, even itself.
+
+Intermediate Level:
+What will be the output of console.log(1 + '1' - 1)?
+
+Output: 10
+
+'1' + 1 results in '11' (string concatenation).
+
+'11' - 1 results in 10 (string gets coerced to a number).
+
+How do you create a shallow copy of an object in JavaScript?
+
+Using the spread operator (...) or Object.assign():
+
+js
+Copy
+Edit
+let obj = { a: 1, b: 2 };
+let copy1 = { ...obj };
+let copy2 = Object.assign({}, obj);
+Explain the difference between == and ===.
+
+== checks for value equality (allows type coercion).
+
+=== checks for both value and type equality.
+
+What is event delegation in JavaScript?
+
+A technique where a parent element handles events for its child elements using event bubbling.
+
+js
+Copy
+Edit
+document.getElementById('parent').addEventListener('click', (event) => {
+  if (event.target.matches('.child')) {
+    console.log('Child clicked!');
+  }
+});
+What does setTimeout return?
+
+It returns a timer ID (a number in browsers, an object in Node.js).
+
+Advanced Level:
+What is the difference between map() and forEach()?
+
+map() returns a new array, whereas forEach() just loops through the array without returning anything.
+
+How do you debounce a function in JavaScript?
+
+Using setTimeout:
+
+js
+Copy
+Edit
+function debounce(fn, delay) {
+  let timer;
+  return function (...args) {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn(...args), delay);
+  };
+}
+Explain the concept of closures with an example.
+
+A closure is when an inner function has access to variables from an outer function even after the outer function has finished executing.
+
+js
+Copy
+Edit
+function outer() {
+  let count = 0;
+  return function inner() {
+    count++;
+    console.log(count);
+  };
+}
+let counter = outer();
+counter(); // 1
+counter(); // 2
+What is the purpose of Object.freeze()?
+
+It makes an object immutable (prevents modifications).
+
+js
+Copy
+Edit
+let obj = { a: 1 };
+Object.freeze(obj);
+obj.a = 2; // No effect
+How do you implement memoization in JavaScript?
+
+Using a cache to store computed results.
+
+js
+Copy
+Edit
+function memoize(fn) {
+  let cache = {};
+  return function (arg) {
+    if (cache[arg]) return cache[arg];
+    return (cache[arg] = fn(arg));
+  };
+}
